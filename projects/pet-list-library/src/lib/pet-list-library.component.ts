@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { PetListLibraryService } from './pet-list-library.service';
 
 @Component({
-  selector: 'lib-PetListLibrary',
+  selector: 'lib-petlist',
   template: `
     <p>
       pet-list-library works!
