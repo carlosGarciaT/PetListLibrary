@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { PetListLibraryService } from './pet-list-library.service';
+import { ViewPets } from './pet.model';
 
 @Component({
   selector: 'lib-petlist',
@@ -13,7 +14,7 @@ import { PetListLibraryService } from './pet-list-library.service';
 })
 export class PetListLibraryComponent implements OnInit {
 
-  private petList: any[];
+  private petList: Array<ViewPets>;
   @Input() estado: string;
 
   constructor(private libraryService: PetListLibraryService) {
