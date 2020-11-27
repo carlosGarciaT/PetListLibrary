@@ -8,17 +8,17 @@ export interface Pet {
 }
 
 export interface Tags {
-id: number;
-name: string;
+  id: number;
+  name: string;
 }
 
 export interface Category {
-id: number;
-name: string;
+  id: number;
+  name: string;
 }
 
-export interface ViewPets{
-id: number;
-name: string;
-status: string;
+export interface ViewPet {
+  id: number;
+  name: string;
+  status: string;
 }

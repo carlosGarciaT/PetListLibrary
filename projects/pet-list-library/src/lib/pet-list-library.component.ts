@@ -1,27 +1,40 @@
-import { Component, Input, OnInit } from '@angular/core';
+import {
+  Component,
+  Input,
+  OnChanges,
+  OnInit,
+  SimpleChanges,
+} from '@angular/core';
 import { PetListLibraryService } from './pet-list-library.service';
-import { ViewPets } from './pet.model';
+import { ViewPet } from './pet.model';
 
 @Component({
   selector: 'lib-petlist',
   template: `
-    <p>
-      pet-list-library works!
-    </p>
+    <ul *ngFor="let pet of petList">
+      <li>
+        ID: {{ pet.id }} --> Name: {{ pet.name }} --> Status: {{ pet.status }}
+      </li>
+    </ul>
   `,
-  styles: [
-  ]
+  styles: [],
 })
-export class PetListLibraryComponent implements OnInit {
+export class PetListLibraryComponent implements OnInit, OnChanges {
+  petList: Array<ViewPet>;
+  @Input() status: string;
 
-  private petList: Array<ViewPets>;
-  @Input() estado: string;
-
-  constructor(private libraryService: PetListLibraryService) {
-    this.libraryService.getPetsAvailable(this.estado).subscribe(res => this.petList = res);
-   }
-
-  ngOnInit(): void {
+  constructor(private libraryService: PetListLibraryService) {}
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log(this.status);
+    this.libraryService
+      .getPetsAvailable(this.status)
+      .subscribe((res) => (this.petList = res));
+    console.log(this.petList);
   }
 
+  ngOnInit(): void {
+    this.libraryService
+      .getPetsAvailable(this.status)
+      .subscribe((res) => (this.petList = res));
+  }
 }
