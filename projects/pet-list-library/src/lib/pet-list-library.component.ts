@@ -24,17 +24,18 @@ export class PetListLibraryComponent implements OnInit, OnChanges {
   @Input() status: string;
 
   constructor(private libraryService: PetListLibraryService) {}
+
   ngOnChanges(changes: SimpleChanges): void {
-    console.log(this.status);
-    this.libraryService
-      .getPetsAvailable(this.status)
-      .subscribe((res) => (this.petList = res));
-    console.log(this.petList);
+    this.petList = this.libraryService.getPetsAvailable(this.status);
+    // this.libraryService
+    //   .getPetsAvailable(this.status)
+    //   .subscribe((res) => (this.petList = res));
   }
 
   ngOnInit(): void {
-    this.libraryService
-      .getPetsAvailable(this.status)
-      .subscribe((res) => (this.petList = res));
+    this.petList = this.libraryService.getPetsAvailable(this.status);
+    // this.libraryService
+    //   .getPetsAvailable(this.status)
+    //   .subscribe((res) => (this.petList = res));
   }
 }
