@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PetListLibraryComponent } from './pet-list-library.component';
-import { HttpClientModule } from '@angular/common/http';
+// import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
@@ -10,7 +10,7 @@ import { FormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     FormsModule,
-    HttpClientModule
+    // HttpClientModule
   ],
   exports: [PetListLibraryComponent]
 })

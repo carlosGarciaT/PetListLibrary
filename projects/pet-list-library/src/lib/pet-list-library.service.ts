@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
-import { map } from 'rxjs/operators';
+// import { Observable } from 'rxjs';
+// import { HttpClient } from '@angular/common/http';
+// import { map } from 'rxjs/operators';
 import { Pet, ViewPet } from './pet.model';
 
 @Injectable({
@@ -9,7 +9,7 @@ import { Pet, ViewPet } from './pet.model';
 })
 export class PetListLibraryService {
   private url: string;
-  constructor(private http: HttpClient) {
+  constructor() {
     this.url = 'https://petstore.swagger.io/v2/';
   }
 
